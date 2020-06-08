@@ -1,0 +1,366 @@
+@font-face {
+font-family: 'font317d5480a545edf076e02aacd21f434f';
+
+    src:    url('https://nomail.com.ua/files/eot/317d5480a545edf076e02aacd21f434f.eot?#iefix') format('embedded-opentype'),
+            url('https://nomail.com.ua/files/woff/317d5480a545edf076e02aacd21f434f.woff') format('woff'),
+            url('https://nomail.com.ua/files/woff2/317d5480a545edf076e02aacd21f434f.woff2') format('woff2');
+}
+
+@font-face { font-family: 'ProximaNova-Black';  src: local('ProximaNova-Black'), url('https://nomail.com.ua/files/woff/317d5480a545edf076e02aacd21f434f.woff') format('woff');
+}
+*, *:after, *:before{
+	box-sizing: border-box;
+}
+body{
+	background: #070506 url(images/main-bg.jpg) top right 90% no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	/* Делает фоновое изображение элемента неподвижным, no-repeat-чтобы картинка не повторялась. */
+	font-family: 'Roboto', sans-serif;
+	color: #FFFFFF;
+}
+.container{
+	width: 90%;
+	margin: auto;
+	max-width: 1060px;
+}
+.header{
+	display: flex;
+	align-items: center;
+	padding-top: 90px;
+}
+.header__logo{
+	margin-right: 71px;
+}
+.nav__link{
+	text-decoration: none;
+	font-size: 16px;
+	line-height: 24px;
+	color: #FFFFFF;
+	margin-right: 15px;
+}
+.hero__subtitle{
+	font-family: 'ProximaNova-Black', sans-serif;
+	display: block;
+	font-weight: 900;
+	font-size: 40px;
+	line-height: 100%;
+	margin-top: 78px;
+}
+.hero__title{
+	font-family: 'ProximaNova-Black', sans-serif;
+	margin-top: 5px;
+	font-weight: 900;
+	font-size: 64px;
+	line-height: 78px;
+	color: #FFFFFF;
+	margin-bottom: 25px;
+}
+.hero__description{
+	font-size: 18px;
+	line-height: 150%;
+	color: #AFAFAF;
+	max-width: 572px;
+}
+.hero__premier{
+	font-size: 18px;
+	line-height: 150%;
+	color: #B02000;
+	display: block;
+	margin-bottom: 5px;
+	}
+.hero__date{
+		font-size: 24px;
+		line-height: 150%;
+		color: #FFFFFF;
+		display: block;
+		margin-bottom: 46px;
+}
+.button-play{
+	border: none;
+	border-radius: 300px;
+	background: linear-gradient(90deg, #FB641A 0%, #FC3309 100%);
+	padding: 25px 87px 25px 34px;
+	color: #FFFFFF;
+	font-size: 14px;
+	line-height: 16px;
+	text-transform: uppercase;
+	position: relative;
+	text-decoration: none;
+	display: inline-block;
+	/* чтобы вся кнопка стала кликабельной */
+}
+.button-play::after{
+	content: '';
+	width: 65px;
+	height: 65px;
+	background: #FFFFFF url(images/play.svg) center no-repeat;
+	/* display: block; */
+	position: absolute;
+	right: 0;
+	top: 0;
+	border-radius: 50%;
+}
+.button-play::before{
+	content: '';
+	width: 81px;
+	height: 81px;
+	/* display: block; */
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.3);
+	position: absolute;
+	top: -8px;
+	right: -8px;
+}
+.button-play:active,
+.button-play:focus{
+	outline: none;
+}
+.episodes{
+	padding: 60px 0;
+}
+.episodes__title{
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 150%;
+	color: #FFFFFF;
+	margin-bottom: 24px;
+}
+.slider{
+	display: flex;
+	flex-wrap: wrap;
+}
+.slider__item{
+	width: 250px;
+	min-height: 200px;
+	border-radius: 10px;
+	padding: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	transition: background 0.2s;
+	position: relative;
+	margin-bottom: 27px;
+}
+/* затемнение для карточек. карточка position-relative, а для фоновой картинки и затемнения absolute и z-index:-2 для того чтобы картинку двинуть в самую даль, и -1для того чтобы затемнение поместить после теста-то есть текст ближе всего по оси z */
+.slider__item::before{
+	content: '';
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: rgba(80, 80, 80, 0.86);
+	box-shadow: 0px 10px 26px rgba(0, 0, 0, 0.25);
+	z-index: -1;
+  border-radius: 10px;
+	transition: all 0.2s;
+}
+/* slider__item::before затемнение */
+.slider__img{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	overflow: hidden;
+	z-index: -2;
+	border-radius: 10px;
+}
+/* slider__img фоновая картинка */
+
+/* при наведенит на ".slider__item:hover" элемент ::before имеет такие параметры */
+.slider__item:hover::before{
+	background: rgba(64, 101, 255, 0.86);
+}
+.slider__raiting-stars,
+.slider__raiting-label{
+	opacity: 0;
+}
+.slider__item:hover .slider__raiting-stars,
+.slider__item:hover .slider__raiting-label{
+	opacity: 1;
+}
+.slider__raiting-label{
+	font-size: 13px;
+	line-height: 150%;
+	color: #FFFFFF;
+	margin-right: 12px;
+}
+.star{
+	background: url(images/star.svg) no-repeat center;
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	margin-right: 2px;
+}
+.star-o{
+	background: url(images/star-o.svg) no-repeat center;
+	width: 12px;
+	height: 12px;
+	margin-right: 2px;
+}
+.slider__raiting-stars{
+}
+.slider__nav--left{
+	width: 32px;
+	height: 32px;
+	border: none;
+	background: transparent url(images/arrow-left.svg) no-repeat center;
+	margin-right: 15px;
+	cursor: pointer;
+	outline: none;
+}
+.slider__nav--right{
+	width: 32px;
+	height: 32px;
+	border: none;
+	background: transparent url(images/arrow-right.svg) no-repeat center;
+	cursor: pointer;
+	outline: none;
+	}
+
+/* отключаем span внутри стрелок, которые прописаны в стилях библиотеки */
+.slider__nav--left span,
+.slider__nav--right span{
+	display: none;
+}
+
+@ -webkit-keyframes fadeInRight {
+  от {
+    непрозрачность : 0 ;
+    -webkit-transform : translate3d ( 100 % ,  0 ,  0 );
+    transform : translate3d ( 100 % ,  0 ,  0 );
+  }
+
+  к {
+    непрозрачность : 1 ;
+    -webkit-transform : translate3d ( 0 ,  0 ,  0 );
+    transform : translate3d ( 0 ,  0 ,  0 );
+  }
+}
+
+/* выбрали тип анимации fadeInLeft сайт animate.style выбрали стили для нее и выбрали стили для класса .animate__animated */
+.animate__animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+@-webkit-keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+.animate__fadeInLeft {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+}
+@-webkit-keyframes pulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes pulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+.animate__pulse {
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+}
+
+
+/* бургер меню */
+.line{
+	width: 100%;
+	height: 3px;
+	background-color: #FFFFFF;
+}
+.m-menu{
+	width: 45px;
+	height: 30px;
+	background-color: transparent;
+	border: transparent;
+	display: none;
+	flex-direction: column;
+	justify-content: space-around;
+	padding: 0;
+}
+@media (max-width: 700px){
+	.nav{
+		transform: translateX(-500%);
+		position: absolute;
+	}
+	.nav.active{
+		top: 150px;
+		left: 0;
+		display: flex;
+		transform: translateX(0%);
+		position: absolute;
+	}
+	.nav__link{
+		font-size: 12px;
+		margin-right: 10px;
+		font-family: 'ProximaNova-Black', sans-serif;
+		font-weight: 600;
+	}
+	.m-menu{
+		display: flex;
+	}
+	.header{
+		display: flex;
+		justify-content: space-between;
+		position: relative;
+		flex-wrap: wrap;
+	}
+	.hero__title{
+		font-size: 50px;
+	}
+}
